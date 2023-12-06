@@ -6,7 +6,7 @@ import { ModeToggle } from "./ModeToggle";
 import { Button } from "./ui/button";
 import Image from "next/image";
 function TopNav() {
-  const user = true;
+  const user = false;
   const [openSearch, setOpenSearch] = useState(false);
   return (
     <div className=" flex  flex-col  relative max-h-[74px]">
@@ -28,14 +28,18 @@ function TopNav() {
                   <AvatarFallback>HY</AvatarFallback>
                 </Avatar>
               </Link>
-              <Button className="  bg-sky-700 border-[1px] rounded-full text-white text-lg hover:bg-white hover:border-sky-700 hover:text-sky-700 dark:hover:bg-transparent ">
-                تسجيل خروج
-              </Button>
+              <Link href="">
+                <Button className="  bg-sky-700 border-[1px] rounded-full text-white text-lg hover:bg-white hover:border-sky-700 hover:text-sky-700 dark:hover:bg-transparent ">
+                  تسجيل خروج
+                </Button>
+              </Link>
             </>
           ) : (
-            <Button className=" bg-sky-700 border-[1px] rounded-full text-white text-lg hover:bg-white hover:border-sky-700 hover:text-sky-700 dark:hover:bg-transparent">
-              تسجيل دخول
-            </Button>
+            <Link href="/login">
+              <Button className=" bg-sky-700 border-[1px] rounded-full text-white text-lg hover:bg-white hover:border-sky-700 hover:text-sky-700 dark:hover:bg-transparent">
+                تسجيل دخول
+              </Button>
+            </Link>
           )}
 
           <ModeToggle />
