@@ -7,9 +7,8 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 function TopNav() {
   const user = false;
-  const [openSearch, setOpenSearch] = useState(false);
   return (
-    <div className=" flex  flex-col  relative max-h-[74px]">
+    <div className=" flex  flex-col   max-h-[74px]  ">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="Logo" height={80} width={80} />
