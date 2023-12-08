@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function page() {
   return (
-    <div className=" h-[calc(100vh-160px)] my-2 p-4  ">
+    <div className=" h-[calc(100vh-160px)] my-[80px] p-4  ">
       <h3 className="text-center text-[40px] text-sky-700 font-bold mb-2 md:mb-1 ">
         Add New Car
       </h3>

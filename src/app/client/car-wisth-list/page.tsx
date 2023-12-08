@@ -5,7 +5,7 @@ import Link from "next/link";
 function page() {
   const table = true;
   return (
-    <div className="h-[calc(100vh-160px)] my-[80px] p-2">
+    <div className="h-[calc(100vh-160px)] my-2 p-2">
       <h3 className="text-center text-[40px] text-sky-700 font-bold mb-2 md:mb-1 ">
         Car Wish List
       </h3>

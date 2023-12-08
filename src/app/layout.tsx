@@ -23,7 +23,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/logo.png" sizes="any" />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className + "overflow-hidden"}>
         {" "}
         <ThemeProvider
           attribute="class"

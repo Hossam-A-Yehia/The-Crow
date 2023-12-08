@@ -24,12 +24,12 @@ function NavBottom() {
     },
     {
       icon: <Bell size={30} strokeWidth={3} />,
-      link: "/",
+      link: "/client/send-message",
       title: "noty",
     },
     {
       icon: <CircleUser size={30} strokeWidth={3} />,
-      link: "/",
+      link: "/client/profile/12",
       title: "profile",
     },
   ];
