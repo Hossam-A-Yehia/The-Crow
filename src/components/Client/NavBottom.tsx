@@ -12,11 +12,7 @@ function NavBottom() {
       link: "/client/car-wisth-list",
       title: "car-washing",
     },
-    {
-      icon: <MapPin size={30} strokeWidth={3} />,
-      link: "/client/address-list",
-      title: "address",
-    },
+
     {
       icon: <Image src="/logo.png" width={50} height={50} alt={""} />,
       link: "/",

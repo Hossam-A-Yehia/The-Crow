@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import ProviderApp from "@/components/ProviderApp";
 
 const inter = Cairo({ subsets: ["arabic"] });
 
@@ -23,17 +24,19 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/logo.png" sizes="any" />
       </head>
-      <body className={inter.className + "overflow-hidden"}>
-        {" "}
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
-      </body>
+      <ProviderApp>
+        <body className={inter.className + "overflow-hidden"}>
+          {" "}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </body>
+      </ProviderApp>
     </html>
   );
 }

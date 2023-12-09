@@ -1,115 +1,65 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import {
-  getStorage,
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-} from "firebase/storage";
-import app from "@/firebase";
 
 export default function ProfileForm() {
-  const [file, setFile] = useState<any>(null);
-
-  const [img, setImg] = useState<string | "">("");
-
-  useEffect(() => {
-    if (file !== null) {
-      const fileName = new Date().getTime() + file?.name;
-      const storage = getStorage(app);
-      const storageRef = ref(storage, fileName);
-      const uploadTask = uploadBytesResumable(storageRef, file);
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
-        },
-        (error) => {
-          console.log("IMG Erorr ");
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            setImg(downloadURL);
-          });
-        }
-      );
-    }
-  }, [file]);
-  console.log(img);
-
   return (
     <form action="" className="w-full mt-[30px] ">
+      <input type="hidden" name="token" value="56465465" />
+
       <div className="flex items-center md:items-start gap-4 flex-col md:flex-row mb-4 ">
         <div className="flex flex-col items-start w-full md:w-1/2 ">
           <label htmlFor="firstName" className="font-bold ">
-            الاسم الاول :*
+            الاسم :*
           </label>
           <input
             required
             type="text"
-            name=""
+            name="name"
             id="firstName"
-            placeholder="اسمك الاول"
+            placeholder="اسمك "
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
           />
         </div>
         <div className="flex flex-col items-start w-full md:w-1/2 ">
-          <label htmlFor="lastName" className="font-bold ">
-            اسم العائلة :*
+          <label htmlFor="phone" className="font-bold ">
+            رقم الهاتف :*
           </label>
           <input
             required
-            type="text"
-            name=""
-            id="lastName"
-            placeholder="اسمك الاخير"
+            type="number"
+            name="number"
+            id="phone"
+            placeholder="065464"
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
           />
         </div>
       </div>
       <div className="flex items-center md:items-start gap-4 flex-col md:flex-row mb-4 ">
         <div className="flex flex-col items-start w-full md:w-1/2 ">
-          <label htmlFor="firstName" className="font-bold ">
-            رقم الهاتف :*
-          </label>
-          <input
-            required
-            type="number"
-            name=""
-            id="firstName"
-            placeholder="065464"
-            className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
-          />
-        </div>
-        <div className="flex flex-col items-start w-full md:w-1/2 ">
-          <label htmlFor="lastName" className="font-bold ">
+          <label htmlFor="password" className="font-bold ">
             كلمة المرور :*
           </label>
           <input
             required
             type="password"
-            name=""
-            id="lastName"
+            name="password"
+            id="password"
             placeholder=""
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
           />
         </div>
         <div className="flex flex-col items-start w-full md:w-1/2 ">
-          <label htmlFor="lastName" className="font-bold ">
+          <label htmlFor="email" className="font-bold ">
             البريد الالكتروني :*
           </label>
           <input
             required
-            disabled
-            readOnly
-            type="text"
-            name=""
-            id="lastName"
-            value="HossamYehia@gmail.com"
-            className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 disabled:bg-gray-300 dark:disabled:bg-gray-700 "
+            type="email"
+            name="email"
+            id="email"
+            placeholder="EreYehia@gmail.com"
+            className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200  "
           />
         </div>
       </div>
@@ -123,13 +73,15 @@ export default function ProfileForm() {
             id="large_size"
             type="file"
             multiple
-            onChange={(e: any) => setFile(e.target.files[0])}
           />
         </div>
       </div>
 
       <div className="flex items-center justify-center gap-3 mb-4 ">
-        <button className=" block bg-sky-700 border-[1px] duration-300  rounded-lg text-white text-lg hover:bg-white hover:border-sky-700 hover:text-sky-700 dark:hover:bg-transparent py-2 px-3 ">
+        <button
+          type="submit"
+          className=" block bg-sky-700 border-[1px] duration-300  rounded-lg text-white text-lg hover:bg-white hover:border-sky-700 hover:text-sky-700 dark:hover:bg-transparent py-2 px-3 "
+        >
           Update
         </button>
         <Link
