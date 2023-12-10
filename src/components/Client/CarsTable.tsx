@@ -30,8 +30,7 @@ function CarsTable() {
       }
     };
     FetchCars();
-  }, [token, data]);
-  console.log(data);
+  }, [token]);
 
   return (
     <>

@@ -2,12 +2,12 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-
-const URL = "https://wevr.tech/store.wevr.tech/public";
+import { URL } from "./url";
 
 export const handleRegister = async (formData: FormData) => {
   const {
-    name,
+    first_name,
+    last_name,
     email,
     password,
     number,
@@ -26,7 +26,8 @@ export const handleRegister = async (formData: FormData) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name,
+        first_name,
+        last_name,
         email,
         password,
         number,
@@ -61,7 +62,8 @@ export const fetchProfile = async (token: string) => {
 };
 
 export const updateProfile = async (formData: FormData) => {
-  const { token } = Object.fromEntries(formData);
+  const { token, last_name, first_name, email, password, number } =
+    Object.fromEntries(formData);
   try {
     const res = await fetch(`${URL}/api/auth/updateprofile`, {
       method: "POST",
@@ -69,7 +71,13 @@ export const updateProfile = async (formData: FormData) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({}),
+      body: JSON.stringify({
+        last_name,
+        first_name,
+        email,
+        password,
+        number,
+      }),
     });
     const data = await res.json();
     console.log(data);
@@ -103,6 +111,7 @@ export const addCar = async (formData: FormData) => {
   }
   redirect("/client/car-wisth-list");
 };
+
 export const updateCar = async (formData: FormData) => {
   const {
     token,
@@ -149,7 +158,7 @@ export const deleteCar = async (formData: FormData) => {
     console.log(err);
   }
   revalidatePath("/client/car-wisth-list");
-  redirect("/client/car-wisth-list?DELETE=SUCCESS");
+  redirect("/client/add-car");
 };
 
 // Authorization

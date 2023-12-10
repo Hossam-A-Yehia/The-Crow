@@ -16,19 +16,31 @@ function page() {
         <h2 className="text-4xl font-bold text-sky-700">انشاء حساب</h2>
         <form action={handleRegister} className="w-full mt-[30px] ">
           <div className="flex  items-center md:items-start gap-4 flex-col md:flex-row ">
-            <div className="flex flex-col items-start w-full md:w-1/3 ">
+            <div className="flex flex-col items-start w-full md:w-1/4 ">
               <label htmlFor="lastName" className="font-bold ">
-                الاسم :*
+                الاسم الاول :*
               </label>
               <input
                 type="text"
-                name="name"
+                name="first_name"
                 id="lastName"
-                placeholder="اسمك "
+                placeholder="اسمك الاول "
                 className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
               />
             </div>
-            <div className="flex flex-col items-start w-full md:w-1/3 ">
+            <div className="flex flex-col items-start w-full md:w-1/4 ">
+              <label htmlFor="last_name" className="font-bold ">
+                اسم العائلة :*
+              </label>
+              <input
+                type="text"
+                name="last_name"
+                id="last_name"
+                placeholder="اسم عائلتك "
+                className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
+              />
+            </div>
+            <div className="flex flex-col items-start w-full md:w-1/4 ">
               <label htmlFor="email" className="font-bold ">
                 البريد الالكتروني :*
               </label>
@@ -40,7 +52,7 @@ function page() {
                 className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-4 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
               />
             </div>
-            <div className="flex flex-col items-start w-full md:w-1/3 ">
+            <div className="flex flex-col items-start w-full md:w-1/4 ">
               <label htmlFor="password" className="font-bold ">
                 كلمة المرور :*
               </label>

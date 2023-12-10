@@ -1,34 +1,87 @@
 "use client";
+import { LOGOUT } from "@/app/store/features/auth";
+import { useAppDispatch } from "@/app/store/hooks";
+import { URL } from "@/app/url";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export default function ProfileForm() {
-  return (
-    <form action="" className="w-full mt-[30px] ">
-      <input type="hidden" name="token" value="56465465" />
+  const { push } = useRouter();
+  const dispatch = useAppDispatch();
+  const [first_name, setFirst_name] = useState(null);
+  const [last_name, setLast_name] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [number, setNumber] = useState(null);
 
+  const token =
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("user") as any).access_token || null
+      : null;
+
+  const updateCar = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(`${URL}/api/auth/updateprofile`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          first_name,
+          last_name,
+          email,
+          password,
+          number,
+        }),
+      });
+      // const data = await res.json();
+      // console.log(data);
+      push("/login");
+      dispatch(LOGOUT());
+      toast.info("Updated Done ");
+    } catch (err: any) {
+      console.log(err);
+    }
+  };
+
+  return (
+    <form onSubmit={updateCar} className="w-full mt-[30px] ">
       <div className="flex items-center md:items-start gap-4 flex-col md:flex-row mb-4 ">
-        <div className="flex flex-col items-start w-full md:w-1/2 ">
+        <div className="flex flex-col items-start w-full md:w-1/3 ">
           <label htmlFor="firstName" className="font-bold ">
-            الاسم :*
+            الاسم الاول :*
           </label>
           <input
-            required
+            onChange={(e) => setFirst_name(e.target.value as any)}
             type="text"
-            name="name"
             id="firstName"
-            placeholder="اسمك "
+            placeholder=" اسمك الاول "
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
           />
         </div>
-        <div className="flex flex-col items-start w-full md:w-1/2 ">
+        <div className="flex flex-col items-start w-full md:w-1/3 ">
+          <label htmlFor="firstName" className="font-bold ">
+            اسم العائلة :*
+          </label>
+          <input
+            onChange={(e) => setLast_name(e.target.value as any)}
+            type="text"
+            id="firstName"
+            placeholder="اسم عائلتك "
+            className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
+          />
+        </div>
+        <div className="flex flex-col items-start w-full md:w-1/3 ">
           <label htmlFor="phone" className="font-bold ">
             رقم الهاتف :*
           </label>
           <input
-            required
-            type="number"
-            name="number"
+            onChange={(e) => setNumber(e.target.value as any)}
+            type="text"
             id="phone"
             placeholder="065464"
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
@@ -41,7 +94,7 @@ export default function ProfileForm() {
             كلمة المرور :*
           </label>
           <input
-            required
+            onChange={(e) => setPassword(e.target.value as any)}
             type="password"
             name="password"
             id="password"
@@ -54,25 +107,12 @@ export default function ProfileForm() {
             البريد الالكتروني :*
           </label>
           <input
-            required
+            onChange={(e) => setEmail(e.target.value as any)}
             type="email"
             name="email"
             id="email"
             placeholder="EreYehia@gmail.com"
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200  "
-          />
-        </div>
-      </div>
-      <div className="flex items-center md:items-start gap-4 flex-col md:flex-row mb-4 ">
-        <div className="flex flex-col items-start w-[500px] mx-auto ">
-          <label htmlFor="lastName" className="font-bold  mb-3">
-            الصورة:
-          </label>
-          <input
-            className="block w-full text-sm p-2 text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-            id="large_size"
-            type="file"
-            multiple
           />
         </div>
       </div>
@@ -85,7 +125,7 @@ export default function ProfileForm() {
           Update
         </button>
         <Link
-          href="/login"
+          href="/"
           className="  block hover:bg-red-700 border-[1px] duration-300 rounded-lg text-white text-lg bg-red-500 border-red-700 hover:border-white  dark:hover:bg-transparent py-2 px-3 "
         >
           Cancel

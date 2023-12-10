@@ -3,6 +3,8 @@ import { Cairo } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import ProviderApp from "@/components/ProviderApp";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Cairo({ subsets: ["arabic"] });
 
@@ -26,7 +28,18 @@ export default function RootLayout({
       </head>
       <ProviderApp>
         <body className={inter.className + "overflow-hidden"}>
-          {" "}
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />{" "}
           <ThemeProvider
             attribute="class"
             defaultTheme="light"

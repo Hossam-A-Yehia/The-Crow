@@ -7,18 +7,19 @@ import { LOGOUT } from "@/app/store/features/auth";
 import { redirect, useRouter } from "next/navigation";
 
 function NavClient() {
-  const router = useRouter();
   const dispatch = useAppDispatch();
-  const name =
+  const first_name =
     typeof window !== "undefined"
-      ? JSON.parse(localStorage.getItem("user") as any).name || null
+      ? JSON.parse(localStorage.getItem("user") as any).first_name || null
+      : null;
+  const last_name =
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("user") as any).last_name || null
       : null;
 
   const logout = () => {
-    router.push("/");
-    setTimeout(() => {
-      dispatch(LOGOUT());
-    }, 1000);
+    dispatch(LOGOUT());
+    location.replace("/");
   };
 
   return (
@@ -29,7 +30,7 @@ function NavClient() {
       <div className="flex items-center gap-3">
         <UserCircle size={50} color="gray" className="bg-white rounded-full" />
         <div className="flex flex-col gap-1 text-white text-lg font-semibold">
-          <span>{name}</span>
+          <span>{`${first_name}  ${last_name}`}</span>
           <span>Client</span>
         </div>
       </div>

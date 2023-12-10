@@ -5,13 +5,18 @@ import {
   SUCCESSLOGIN,
 } from "@/app/store/features/auth";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { URL } from "@/app/url";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function LoginForm() {
   const { push } = useRouter();
-  const URL = "https://wevr.tech/store.wevr.tech/public";
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      location.replace("/");
+    }
+  }, []);
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -35,11 +40,12 @@ function LoginForm() {
       const newData = {
         access_token: data.access_token,
         email: data.user.email,
-        name: data.user.name,
+        first_name: data.user.first_name,
+        last_name: data.user.last_name,
         number: data.user.number,
       };
       dispatch(SUCCESSLOGIN(newData as any));
-      console.log(newData);
+      console.log(data);
 
       push("/client/car-wisth-list");
     } catch (err: any) {
@@ -91,7 +97,10 @@ function LoginForm() {
           انشاء حساب
         </Link>
       </div>
-      <Link href="/auth/forgetPassword" className="font-bold text-lg">
+      <Link
+        href="/auth/forgetPassword"
+        className=" duration-300 font-bold text-lg hover:text-sky-700"
+      >
         نسيت كلمة المرور ؟
       </Link>
     </form>

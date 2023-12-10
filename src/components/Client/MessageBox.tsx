@@ -1,5 +1,9 @@
+"use client";
+import { URL } from "@/app/url";
 import { X } from "lucide-react";
-import { Dispatch, SetStateAction } from "react";
+import { redirect, useRouter } from "next/navigation";
+import { Dispatch, SetStateAction, useState } from "react";
+import { toast } from "react-toastify";
 
 function MessageBox({
   open,
@@ -8,6 +12,35 @@ function MessageBox({
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
 }) {
+  const [message, setmessage] = useState("");
+
+  const { push } = useRouter();
+
+  const token =
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("user") as any).access_token
+      : null;
+
+  const sendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(`${URL}/api/Message/add`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ message }),
+      });
+      const data = await res.json();
+      console.log(data);
+      push("/");
+      toast.success("The message has been sent, thank you");
+    } catch (err: any) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
       <div
@@ -25,10 +58,9 @@ function MessageBox({
           <h1 className="font-bold text-2xl dark:text-slate-100  ">
             Send A Message
           </h1>
-          <form className="my-3">
+          <form onSubmit={sendMessage} className="my-3">
             <textarea
-              name=""
-              id=""
+              onChange={(e) => setmessage(e.target.value)}
               placeholder="Your Message..."
               className="p-2  border-[2px] border-sky-700 rounded-lg h-[200px] w-full outline-1 focus:outline-none "
             ></textarea>

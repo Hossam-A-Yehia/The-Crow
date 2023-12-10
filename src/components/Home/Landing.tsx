@@ -1,8 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 function Landing({ arOrEn, changeLang }: any) {
+  const user =
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("user") as any)
+      : null;
   return (
     <div className="p-4 w-full h-[calc(100vh-108px)] relative bg-landing bg-cover bg-red-500 content-[' '] before:absolute before:bg-[#000000b3] before:w-full before:h-full before:top-0 before:left-0 flex items-center justify-center before:z-1 ">
       <Button onClick={changeLang} className=" fixed top-[110px] left-0 z-50">
@@ -22,13 +27,16 @@ function Landing({ arOrEn, changeLang }: any) {
               <br />
               <br />
               <span className="text-sky-400">
-                الاشتراك الشهري مسعر بقيمة 175 جنيه، اشترك خلال أسبوع الافتتاح
-                التجريبي لدينا وادفع فقط 150 جنيه
+                الاشتراك الشهري مسعر بقيمة 300 جنيه، اشترك خلال شهر 1 وادفع فقط
+                250 جنيه
               </span>
             </p>
-            <Button className="bg-sky-700 px-9 font-semibold  rounded-full text-white text-lg hover:bg-sky-800   dark:hover:bg-transparent  dark:hover:border-[1px]  dark:hover:border-white w-fit mx-auto">
+            <Link
+              href={`${user ? "/client/add-car" : " /login"}`}
+              className="bg-sky-700 px-9 font-semibold  rounded-full text-white text-lg hover:bg-sky-800   dark:hover:bg-transparent  dark:hover:border-[1px]  dark:hover:border-white w-fit mx-auto py-2"
+            >
               احجز الان
-            </Button>
+            </Link>
           </>
         ) : (
           <>
@@ -44,8 +52,8 @@ function Landing({ arOrEn, changeLang }: any) {
               <br />
               <br />
               <span className="text-sky-400">
-                The monthly subscription is priced at 175 pounds, subscribe
-                during the opening week Demo our and pay only 150 pounds
+                The monthly subscription is priced at 300 pounds. Subscribe
+                during the month of January(1) and pay only 250 pounds
               </span>
             </p>
             <Button className="bg-sky-700 px-9 font-semibold  rounded-full text-white text-lg hover:bg-sky-800   dark:hover:bg-transparent  dark:hover:border-[1px]  dark:hover:border-white w-fit mx-auto">

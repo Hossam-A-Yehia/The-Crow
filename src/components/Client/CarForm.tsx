@@ -8,8 +8,6 @@ export default function CarForm() {
       ? JSON.parse(localStorage.getItem("user") as any).access_token
       : null;
 
-  console.log(token);
-
   return (
     <form action={addCar} className="w-full mt-[30px] ">
       <input type="hidden" name="token" value={token} />

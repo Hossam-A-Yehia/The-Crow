@@ -5,8 +5,17 @@ import Link from "next/link";
 import { ModeToggle } from "./ModeToggle";
 import { Button } from "./ui/button";
 import Image from "next/image";
+import { useAppDispatch } from "@/app/store/hooks";
+import { LOGOUT } from "@/app/store/features/auth";
 function TopNav() {
-  const user = false;
+  const dispatch = useAppDispatch();
+
+  const logout = () => {
+    dispatch(LOGOUT());
+    location.replace("/");
+  };
+
+  const user = JSON.parse(localStorage.getItem("user") as any);
   return (
     <div className=" flex  flex-col   max-h-[74px]  ">
       <div className="flex items-center justify-between">
@@ -17,7 +26,7 @@ function TopNav() {
         <div className="flex items-center gap-3">
           {user ? (
             <>
-              <Link href="/" className=" ">
+              <Link href="/client/car-wisth-list" className=" ">
                 <Avatar className="transition-all duration-300 flex items-center justify-center cursor-pointer ">
                   <AvatarImage
                     className="rounded-full w-10 h-10"
@@ -27,11 +36,12 @@ function TopNav() {
                   <AvatarFallback>HY</AvatarFallback>
                 </Avatar>
               </Link>
-              <Link href="">
-                <Button className="  bg-sky-700 border-[1px] rounded-full text-white text-lg hover:bg-white hover:border-sky-700 hover:text-sky-700 dark:hover:bg-transparent ">
-                  تسجيل خروج
-                </Button>
-              </Link>
+              <Button
+                onClick={logout}
+                className="  bg-sky-700 border-[1px] rounded-full text-white text-lg hover:bg-white hover:border-sky-700 hover:text-sky-700 dark:hover:bg-transparent "
+              >
+                تسجيل خروج
+              </Button>
             </>
           ) : (
             <Link href="/login">
