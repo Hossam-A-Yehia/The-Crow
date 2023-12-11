@@ -29,10 +29,10 @@ function Landing({}: any) {
       <div className=" relative z-40 text-white text-center flex flex-col gap-3">
         {arOrEn === "ar" ? (
           <>
-            <h1 className="text-5xl font-bold ">
+            <h1 className="text-3xl md:text-5xl font-bold ">
               اغسل <span className="text-sky-500">سيارتك</span> الأن
             </h1>
-            <p className="my-5 w-[400px] md:w-[600px] lg:w-[800px]  text-xs md:text-sm  lg:text-base font-semibold leading-7 ">
+            <p className="my-5 w-[300px] md:w-[600px] lg:w-[800px]  text-xs md:text-sm  lg:text-base font-semibold leading-7 ">
               نحن نهتم بجميع التفاصيل. تتكون شبكتنا من أفراد مدربين تدريباً
               عالياً وتم إختيارهم بدقة الاشتراك فى خدمتنا و تحميل تطبيقنا يتيح
               لك تجربة غسيل سيارة مميزة ومريحة عن طريق متابعة ومعرفة جدول غسيل
@@ -45,7 +45,7 @@ function Landing({}: any) {
               </span>
             </p>
             <Link
-              href={`${user ? "/client/add-car" : " /login"}`}
+              href={`${user ? "/client/add-car" : " /register"}`}
               className="bg-sky-700 px-9 font-semibold  rounded-full text-white text-lg hover:bg-sky-800   dark:hover:bg-transparent  dark:hover:border-[1px]  dark:hover:border-white w-fit mx-auto py-2"
             >
               احجز الان
@@ -53,10 +53,10 @@ function Landing({}: any) {
           </>
         ) : (
           <>
-            <h1 className="text-5xl font-bold ">
+            <h1 className="text-3xl md:text-5xl font-bold ">
               Wash <span className="text-sky-500">You car</span> now
             </h1>
-            <p className="my-5 w-[400px] md:w-[600px] lg:w-[800px]  text-xs md:text-sm  lg:text-base font-semibold leading-7 ">
+            <p className="my-5 w-[300px] md:w-[600px] lg:w-[800px]  text-xs md:text-sm  lg:text-base font-semibold leading-7 ">
               We care about all the details. Our network consists of highly
               trained individuals They were carefully selected. Subscribing to
               our service and downloading our application allows you to

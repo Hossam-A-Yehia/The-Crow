@@ -17,7 +17,7 @@ function Contact() {
     <div className=" relative ">
       <Button
         onClick={changeLang}
-        className=" absolute top-0 w-fit left-0 z-50"
+        className=" absolute top-[-10px] w-fit left-0 z-50"
       >
         Ar/En
       </Button>
@@ -34,10 +34,10 @@ function Contact() {
               src="/contact.svg"
               width={350}
               height={350}
-              className=" animate-wiggle "
+              className=" animate-wiggle h-[300px] w-[300px] md:h-[350px] md:w-[350px]"
               alt={""}
             />
-            <form action="" className="flex flex-col gap-2 w-96">
+            <form action="" className="flex flex-col gap-2 w-[300px] md:w-96">
               <input
                 type="text"
                 placeholder="اسمك"
@@ -72,10 +72,10 @@ function Contact() {
               src="/contact.svg"
               width={350}
               height={350}
-              className=" animate-wiggle "
+              className=" animate-wiggle h-[300px] w-[300px] md:h-[350px] md:w-[350px] "
               alt={""}
             />
-            <form action="" className="flex flex-col gap-2 w-96">
+            <form action="" className="flex flex-col gap-2 w-[300px] md:w-96">
               <input
                 type="text"
                 placeholder="Name"

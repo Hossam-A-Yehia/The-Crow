@@ -192,7 +192,7 @@ export default function ProfileForm() {
   }, []);
 
   return (
-    <form className="w-full mt-[30px] ">
+    <form className="w-full mt-[30px] p-4">
       <div className="flex items-center md:items-start gap-4 flex-col md:flex-row mb-4 ">
         <div className="flex flex-col items-start w-full md:w-1/3 ">
           {updated === "firstName" ? (

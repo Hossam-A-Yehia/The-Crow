@@ -39,7 +39,7 @@ function RegisterForm() {
   console.log(user);
 
   return (
-    <form onSubmit={handleRegister} className="w-full mt-[30px] ">
+    <form onSubmit={handleRegister} className="w-full p-4 mt-[30px] ">
       <div className="flex  items-center md:items-start gap-4 flex-col md:flex-row ">
         <div className="flex flex-col items-start w-full md:w-1/4 ">
           <label htmlFor="lastName" className="font-bold ">

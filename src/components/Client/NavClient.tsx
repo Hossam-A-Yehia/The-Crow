@@ -28,7 +28,11 @@ function NavClient() {
       dir="ltr"
     >
       <div className="flex items-center gap-3">
-        <UserCircle size={50} color="gray" className="bg-white rounded-full" />
+        <UserCircle
+          size={50}
+          color="gray"
+          className="bg-white rounded-full hidden md:block"
+        />
         <div className="flex flex-col gap-1 text-white text-lg font-semibold">
           <span>{`${first_name}  ${last_name}`}</span>
           <span>Client</span>

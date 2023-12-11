@@ -55,7 +55,7 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleLogin} className="w-full mt-[30px] ">
+    <form onSubmit={handleLogin} className="w-full p-4 mt-[30px] ">
       {/* <input type=" hidden" name="dispatch" value={dispatch} id="" /> */}
       <div className="flex flex-col  items-start w-full mb-3">
         <label htmlFor="email" className="font-bold ">
