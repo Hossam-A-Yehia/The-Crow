@@ -43,20 +43,20 @@ function About() {
               <h3 className="mt-20 mb-[20px] text-2xl font-bold tracking-wider ">
                 احترافي
               </h3>
-              <p className=" leading-7 text-sm text-slate-800 dark:text-slate-200">
-                شراكتنا حصرية مع أرقى التفاصيل، والتي تضم محترفين مدربين تدريباً
-                عالياً وتم فحصهم بدقة. <br />
-                يتيح لك الاشتراك في خدمتنا وتنزيل تطبيقنا تجربة رحلة غسيل سيارات
-                مميزة ومريحة، والبقاء على اطلاع بسهولة بجدول غسيل سيارتك. <br />
-                اختر المواعيد الأنسب لغسيل سيارتك.
+              <p className=" text-sm text-slate-800 dark:text-slate-200">
+                - نحن نهتم بجميع التفاصيل. تتكون شبكتنا من أفراد مدربين تدريباً-
+                عالياً وتم إختيارهم بدقة.
                 <br />
-                تتبع عدد الغسلات خلال الشهر.
+                - الاشتراك فى خدمتنا و تحميل تطبيقنا يتيح لك تجربة غسيل سيارة
+                مميزة ومريحة عن طريق متابعة ومعرفة جدول غسيل سيارتك بدون أي عناء
                 <br />
-                التواصل مع فريق الدعم لدينا من خلال التطبيق لأية مشاكل أو
-                استفسارات.
+                - تحديد المواعيد المناسبة لغسيل سيارتك <br />
+                - متابعة عدد المرات التي تم غسيلها خلال الشهر.
                 <br />
-                احجز اشتراكك الآن واستمتع بخدمة غسيل سيارات عالية الجودة وخالية
-                من المتاعب.
+                - التواصل مع فريق الدعم من خلال التطبيق في حال واجهت أي مشكلة أو
+                لديك أي استفسار.
+                <br />- قم بحجز اشتراكك الآن واستمتع بخدمة غسيل سيارة عالية
+                الجودة بدون أي عناء{" "}
               </p>
             </div>
             <div className=" col-span-1 md:col-span-1 mb-[50px] group transition-all duration-300 flex items-center flex-col gap-5 bg-slate-200 hover:bg-slate-300 border-[1px] hover:border-slate-200 px-[5px] py-4 relative dark:bg-slate-800 dark:hover:border-slate-800 dark:hover:bg-slate-900  hover:-translate-y-3 ">
@@ -72,11 +72,13 @@ function About() {
                 فعال
               </h3>
               <p className=" leading-7 text-sm text-slate-800 dark:text-slate-200">
-                نحن نعطي الأولوية للتميز والكفاءة في كل ما نقوم به. <br />
-                لا هدر المياه. <br />
-                لا توجد شقوق على الطرق في مجمعنا. <br />
-                منتجات ايطالية عالية الجودة. <br />
-                لا يوجد تآكل أو خدوش في الأسطح المعدنية لسيارتك..{" "}
+                - نحن نعطي الأولوية للتميز والكفاءة في كل ما نقوم به. . <br />
+                - لا تبذير للماء.
+                <br />
+                - لا تشققات في طرق الكومباوند.
+                <br />
+                - منتجات إيطالية عالية الجودة.
+                <br />- لا تآكل ولا خدوش على سطوح سيارتك المعدنية{" "}
               </p>
             </div>
             <div className=" col-span-1 md:col-span-1 mb-[50px] group transition-all duration-300 flex items-center flex-col gap-5 bg-slate-200 hover:bg-slate-300 border-[1px] hover:border-slate-200 px-[5px] py-4 relative dark:bg-slate-800 dark:hover:border-slate-800 dark:hover:bg-slate-900  hover:-translate-y-3 ">
@@ -92,10 +94,9 @@ function About() {
                 سريع
               </h3>
               <p className=" leading-7 text-sm text-slate-800 dark:text-slate-200">
-                توفير الوقت والتركيز على ما يهم.
-                <br />
-                لا يستغرق التسجيل سوى بضع نقرات ويتم تأمين الدفع باستخدام
-                إنستاباي.
+                - مريحة و أمنة وفر الوقت و ركز على ما يهم.
+                <br />- لا يستغرق التسجيل سوى بضع دقائق و يوجد لدينا خيارات دفع
+                مرنة مع انستاباى
               </p>
             </div>
           </div>
@@ -158,16 +159,18 @@ function About() {
               <h3 className="mt-20 mb-[20px] text-2xl font-bold tracking-wider ">
                 Efficient
               </h3>
-              <p className=" leading-7 text-sm text-slate-800 dark:text-slate-200">
-                We prioritize excellence and efficiency in everything we do.
+              <p
+                className=" leading-7 text-sm text-slate-800 dark:text-slate-200"
+                dir="ltr"
+              >
+                - We prioritize excellence and efficiency in everything we do.
                 <br />
-                No water wastage.
+                - No water wastage.
                 <br />
-                No road cracks in our compound.
+                - No road cracks in our compound.
                 <br />
-                High-quality Italian products.
-                <br />
-                No corrosion and scratches in your cars metal surfaces..
+                - High-quality Italian products.
+                <br />- No corrosion and scratches in your cars metal surfaces..
               </p>
             </div>
             <div className=" col-span-1 md:col-span-1 mb-[50px] group transition-all duration-300 flex items-center flex-col gap-5 bg-slate-200 hover:bg-slate-300 border-[1px] hover:border-slate-200 px-[5px] py-4 relative dark:bg-slate-800 dark:hover:border-slate-800 dark:hover:bg-slate-900  hover:-translate-y-3 ">
@@ -186,10 +189,9 @@ function About() {
                 className=" leading-7 text-sm text-slate-800 dark:text-slate-200"
                 dir="ltr"
               >
-                Save time and focus on what matters.
-                <br />
-                Registering only takes a few clicks and payment is secured with
-                Instapay.
+                - Save time and focus on what matters.
+                <br />- Registering only takes a few clicks and payment is
+                secured with Instapay.
               </p>
             </div>
           </div>

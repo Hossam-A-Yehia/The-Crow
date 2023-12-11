@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 function LoginForm() {
+  const [error, setError] = useState("");
   const { push } = useRouter();
   useEffect(() => {
     if (localStorage.getItem("user")) {
@@ -51,17 +52,22 @@ function LoginForm() {
     } catch (err: any) {
       console.log(err);
       dispatch(FAILURELOGIN());
+      setError("تسجيل خاطئ برجاء التأكد من البريد وكلمة المرور");
     }
   };
 
   return (
     <form onSubmit={handleLogin} className="w-full p-4 mt-[30px] ">
+      {error.length > 0 && (
+        <p className="text-red-700 mb-4 font-bold">{error}</p>
+      )}
       {/* <input type=" hidden" name="dispatch" value={dispatch} id="" /> */}
       <div className="flex flex-col  items-start w-full mb-3">
         <label htmlFor="email" className="font-bold ">
           البريد الالكتروني :
         </label>
         <input
+          required
           onChange={(e) => setEmail(e.target.value)}
           type="text"
           name="email"
@@ -75,6 +81,7 @@ function LoginForm() {
           كلمة المرور :
         </label>
         <input
+          required
           onChange={(e) => setPassword(e.target.value)}
           type="password"
           name="password"

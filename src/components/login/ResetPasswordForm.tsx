@@ -5,30 +5,40 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 function ResetPasswordForm() {
+  const [error, setError] = useState("");
+
   const [password, setPassword] = useState("");
   const { push } = useRouter();
 
   const resetPassword = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${URL}/api/auth/change-password`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ password }),
-      });
-      const data = await res.json();
-      console.log(data);
-      push("/");
-      toast.success("A new password has been created, please login again");
+      if (password.length > 5) {
+        const res = await fetch(`${URL}/api/auth/change-password`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ password }),
+        });
+        const data = await res.json();
+        console.log(data);
+        push("/");
+        toast.success("A new password has been created, please login again");
+      } else {
+        setError("كلمة المرور يجب ان تكون اكبر من 6");
+      }
     } catch (err: any) {
       console.log(err);
+      setError("كلمة المرور يجب ان تكون اكبر من 6");
     }
   };
 
   return (
     <form onSubmit={resetPassword} className="w-full mt-[30px] ">
+      {error.length > 0 && (
+        <p className="text-red-700 mb-4 font-bold">{error}</p>
+      )}
       <div className="flex flex-col  items-start w-full mb-3">
         <label htmlFor="password" className="font-bold ">
           كلمة المرور الجديدة :

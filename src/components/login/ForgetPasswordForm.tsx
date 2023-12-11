@@ -6,6 +6,8 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 export default function ForgetPasswordForm() {
+  const [error, setError] = useState("");
+
   const [email, setEmail] = useState("");
   const { push } = useRouter();
 
@@ -25,16 +27,21 @@ export default function ForgetPasswordForm() {
       toast.info("Please Check You Gmail");
     } catch (err: any) {
       console.log(err);
+      setEmail("الايميل غير موجود برجاء التأكد من البريد ");
     }
   };
 
   return (
     <form onSubmit={SendEmail} className="w-full mt-[30px] ">
+      {error.length > 0 && (
+        <p className="text-red-700 mb-4 font-bold">{error}</p>
+      )}
       <div className="flex flex-col  items-start w-full mb-3">
         <label htmlFor="email" className="font-bold ">
           البريد الالكتروني :
         </label>
         <input
+          required
           onChange={(e) => setEmail(e.target.value)}
           type="email"
           name="email"
