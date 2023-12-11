@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import Link from "next/link";
 import { ModeToggle } from "./ModeToggle";
@@ -15,7 +14,11 @@ function TopNav() {
     location.replace("/");
   };
 
-  const user = JSON.parse(localStorage.getItem("user") as any);
+  const user =
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("user") as any)
+      : null;
+
   return (
     <div className=" flex  flex-col   max-h-[74px]  ">
       <div className="flex items-center justify-between">
