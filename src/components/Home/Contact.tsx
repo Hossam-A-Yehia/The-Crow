@@ -26,7 +26,7 @@ function Contact() {
           <div className="flex flex-col gap-2 mb-[90px]">
             <span className="font-bold text-gray-500 ">اتصل بنا</span>
             <span className="font-bold text-3xl text-sky-700 tracking-wider">
-              موجودين دايما علشانك
+              نحن هنا من أجلك
             </span>
           </div>{" "}
           <div className="flex items-center gap-[130px] justify-center mt-16 flex-col md:flex-row">
@@ -64,7 +64,7 @@ function Contact() {
           <div className="flex flex-col gap-2 mb-[90px]">
             <span className="font-bold text-gray-500 ">Contact Us</span>
             <span className="font-bold text-3xl text-sky-700 tracking-wider">
-              We are always there for you
+              We are here for you
             </span>
           </div>{" "}
           <div className="flex items-center gap-[130px] justify-center mt-16 flex-col md:flex-row">

@@ -34,14 +34,15 @@ function Landing({}: any) {
             </h1>
             <p className="my-5 w-[300px] md:w-[600px] lg:w-[800px]  text-xs md:text-sm  lg:text-base font-semibold leading-7 ">
               نحن نهتم بجميع التفاصيل. تتكون شبكتنا من أفراد مدربين تدريباً
-              عالياً وتم إختيارهم بدقة الاشتراك فى خدمتنا و تحميل تطبيقنا يتيح
+              عالياً وتم إختيارهم بدقة. الاشتراك فى خدمتنا و تحميل تطبيقنا يتيح
               لك تجربة غسيل سيارة مميزة ومريحة عن طريق متابعة ومعرفة جدول غسيل
-              سيارتك بدون أي عناء
+              سيارتك بدون أي عناء.
               <br />
               <br />
               <span className="text-sky-400">
-                الاشتراك الشهري مسعر بقيمة 300 جنيه، اشترك خلال شهر 1 وادفع فقط
-                250 جنيه
+                الاشتراك الشهري بقيمة 300 جنيه، اشترك خلال شهر يناير وادفع فقط
+                250 جنيه يشمل غسيل السيارة من الخارج بالكامل غسيلا جافا ( 8 مرات
+                شهريا).
               </span>
             </p>
             <Link
@@ -57,21 +58,26 @@ function Landing({}: any) {
               Wash <span className="text-sky-500">You car</span> now
             </h1>
             <p className="my-5 w-[300px] md:w-[600px] lg:w-[800px]  text-xs md:text-sm  lg:text-base font-semibold leading-7 ">
-              We care about all the details. Our network consists of highly
-              trained individuals They were carefully selected. Subscribing to
-              our service and downloading our application allows you to
-              experience Distinctive and convenient car wash by following and
-              knowing your car wash schedule without any hassle trouble
+              We prioritize attention to every detail, and our network comprises
+              meticulously chosen and highly trained individuals. When you
+              subscribe to our service and download our application, you gain
+              access to a unique and convenient car wash experience. This
+              involves effortlessly managing and staying informed about your car
+              wash schedule.
               <br />
               <br />
               <span className="text-sky-400">
-                The monthly subscription is priced at 300 pounds. Subscribe
-                during the month of January(1) and pay only 250 pounds
+                Our monthly subscription is available at a rate of 300 EGP. If
+                you subscribe during January, you can take advantage of a
+                special offer and pay only 250 EGP.{" "}
               </span>
             </p>
-            <Button className="bg-sky-700 px-9 font-semibold  rounded-full text-white text-lg hover:bg-sky-800   dark:hover:bg-transparent  dark:hover:border-[1px]  dark:hover:border-white w-fit mx-auto">
+            <Link
+              href={`${user ? "/client/add-car" : " /register"}`}
+              className="bg-sky-700 px-9 font-semibold  rounded-full text-white text-lg hover:bg-sky-800   dark:hover:bg-transparent  dark:hover:border-[1px]  dark:hover:border-white w-fit mx-auto py-2"
+            >
               Subscribe Now
-            </Button>
+            </Link>
           </>
         )}
       </div>

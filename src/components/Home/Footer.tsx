@@ -26,15 +26,10 @@ function Footer() {
       {arOrEn === "ar" ? (
         <div className=" flex items-center md:items-start justify-between mx-auto flex-col md:flex-row">
           <div className="flex flex-col gap-3 border-b-[1px] border-slate-300 w-full py-3 my-3 md:m-0 md:p-0 md:border-none ">
-            <h1 className="font-bold text-2xl ">مواعيد العمل </h1>
-            <div className="flex flex-col gap-1">
-              <span className="  text-sm text-gray-500 font-semibold">
-                السبت - الخميس
-              </span>
-              <span className=" font-medium text-xl">
-                من 4 مساءا الي 12 صباحا
-              </span>
-            </div>
+            <h1 className="font-bold text-2xl ">
+              نحن متواجدون من السبت إلى الخميس من الساعة 4 مساءً حتى الساعة 12
+              منتصف الليل{" "}
+            </h1>
           </div>
           <div className="flex flex-col gap-3 border-b-[1px] border-slate-300 w-full py-3 my-3 md:m-0 md:p-0 md:border-none">
             <h1 className="font-bold text-2xl text-center ">
@@ -69,13 +64,9 @@ function Footer() {
       ) : (
         <div className=" flex items-center md:items-start justify-between mx-auto flex-col md:flex-row">
           <div className="flex flex-col gap-3 border-b-[1px] border-slate-300 w-full py-3 my-3 md:m-0 md:p-0 md:border-none ">
-            <h1 className="font-bold text-2xl ">Times of work </h1>
-            <div className="flex flex-col gap-1">
-              <span className="  text-sm text-gray-500 font-semibold">
-                Saturday - Thursday
-              </span>
-              <span className=" font-medium text-xl">4 pm to 10 am</span>
-            </div>
+            <h1 className="font-bold text-2xl ">
+              we are available from Saturday to Thursday from 4Pm to 12am{" "}
+            </h1>
           </div>
           <div className="flex flex-col gap-3 border-b-[1px] border-slate-300 w-full py-3 my-3 md:m-0 md:p-0 md:border-none">
             <h1 className="font-bold text-2xl text-center ">The news </h1>

@@ -74,7 +74,7 @@ module.exports = {
         wiggle: "wiggle 3s ease-in-out infinite",
       },
       backgroundImage: {
-        landing: "url('/car-wash-1024x684.jpg')",
+        landing: "url('/WhatsApp Image 2023-12-11 at 3.30.41 PM.jpeg')",
       },
     },
   },

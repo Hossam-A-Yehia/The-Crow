@@ -50,7 +50,7 @@ function RegisterForm() {
             type="text"
             name="first_name"
             id="lastName"
-            placeholder="اسمك الاول "
+            placeholder="First name "
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
           />
         </div>
@@ -63,7 +63,7 @@ function RegisterForm() {
             type="text"
             name="last_name"
             id="last_name"
-            placeholder="اسم عائلتك "
+            placeholder="Last name "
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
           />
         </div>
@@ -76,7 +76,7 @@ function RegisterForm() {
             type="email"
             name="email"
             id="email"
-            placeholder="ادخل بريدك الالكتروني..."
+            placeholder=" Email address"
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-4 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
           />
         </div>
@@ -89,7 +89,7 @@ function RegisterForm() {
             type="password"
             name="password"
             id="password"
-            placeholder="ادخل كلمة المرور..."
+            placeholder="password"
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-4 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200"
           />
         </div>
@@ -104,33 +104,33 @@ function RegisterForm() {
             type="text"
             name="number"
             id="phone"
-            placeholder="رقم هاتفك"
+            placeholder="Mobile number"
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
           />
         </div>
         <div className="flex flex-col items-start w-full md:w-1/4 ">
           <label htmlFor="zone" className="font-bold ">
-            رقم المنطقة :*
+            رقم الزون :*
           </label>
           <input
             onChange={handleChange}
             type="text"
             name="zone_number"
             id="zone"
-            placeholder="رقم منطقتك"
+            placeholder="Zone number"
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-4 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
           />
         </div>
         <div className="flex flex-col items-start w-full md:w-1/4 ">
           <label htmlFor="number" className="font-bold ">
-            رقم المبني :*
+            رقم العمارة :*
           </label>
           <input
             onChange={handleChange}
             type="text"
             name="building_number"
             id="number"
-            placeholder="رقم المبني"
+            placeholder="Building number"
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-4 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200"
           />
         </div>
@@ -143,7 +143,7 @@ function RegisterForm() {
             type="text"
             name="apartment_number"
             id="apartment"
-            placeholder="رقم الشقة"
+            placeholder="Apartment Number"
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
           />
         </div>
@@ -158,7 +158,7 @@ function RegisterForm() {
             type="text"
             name="car_model"
             id="carModel"
-            placeholder="نوع سيارتك"
+            placeholder="Car model"
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
           />
         </div>
@@ -171,20 +171,20 @@ function RegisterForm() {
             type="text"
             name="car_color"
             id="carColor"
-            placeholder="لون سيارتك"
+            placeholder="Car Color"
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-4 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
           />
         </div>
         <div className="flex flex-col items-start w-full md:w-1/4 ">
           <label htmlFor="number" className="font-bold ">
-            نمرة السيارة :*
+            رقم السيارة :*
           </label>
           <input
             onChange={handleChange}
             type="text"
             name="car_number"
             id="number"
-            placeholder="نمرة سيارتك"
+            placeholder="Car Plate information"
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-4 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200"
           />
         </div>
@@ -199,6 +199,9 @@ function RegisterForm() {
             id="countries"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
+            <option value="Mon-Thu" hidden>
+              Car wash schedule
+            </option>
             <option value="Mon-Thu">الاثنين و الخميس</option>
             <option value="Sun-Wed">الأحد والأربعاء</option>
             <option value="Sat-Tue">السبت والثلاثاء</option>
