@@ -133,7 +133,7 @@ function About() {
                 <br />
                 - Subscribing to our service and downloading our application
                 allows you to experience a distinctive and convenient car wash
-                journey, effortlessly staying informed about your car's wash
+                journey, effortlessly staying informed about your cars wash
                 schedule.
                 <br />
                 - Choose the most suitable appointments for your car wash.
@@ -167,7 +167,7 @@ function About() {
                 <br />
                 High-quality Italian products.
                 <br />
-                No corrosion and scratches in your car's metal surfaces..
+                No corrosion and scratches in your cars metal surfaces..
               </p>
             </div>
             <div className=" col-span-1 md:col-span-1 mb-[50px] group transition-all duration-300 flex items-center flex-col gap-5 bg-slate-200 hover:bg-slate-300 border-[1px] hover:border-slate-200 px-[5px] py-4 relative dark:bg-slate-800 dark:hover:border-slate-800 dark:hover:bg-slate-900  hover:-translate-y-3 ">
