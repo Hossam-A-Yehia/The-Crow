@@ -10,7 +10,7 @@ function page() {
         <title>The Crew || Forget Password</title>
       </head>
       <TopNav />
-      <div className="flex flex-col p-2w-[400px]  md:w-[500px]   mx-auto text-center items-center justify-center">
+      <div className="flex flex-col p-2 w-[350px]  md:w-[500px]   mx-auto text-center items-center justify-center">
         <Link href={"/"}>
           <Image src="/logo.png" alt="Login" width={250} height={250} />
         </Link>
