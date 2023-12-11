@@ -1,8 +1,27 @@
+"use client";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Button } from "../ui/button";
 
-function about({ arOrEn }: { arOrEn: string }) {
+function About() {
+  const [arOrEn, setArOrEn] = useState<string>("ar");
+
+  useEffect(() => {
+    localStorage.setItem("lang", arOrEn);
+  }, [arOrEn]);
+
+  const changeLang = () => {
+    arOrEn === "ar" ? setArOrEn("en") : setArOrEn("ar");
+  };
+
   return (
-    <>
+    <div className=" relative">
+      <Button
+        onClick={changeLang}
+        className=" absolute top-0 w-fit left-0 z-50"
+      >
+        Ar/En
+      </Button>
       {arOrEn === "ar" ? (
         <div className="p-4 my-24 text-center">
           <div className="flex flex-col gap-2 mb-[150px]">
@@ -121,9 +140,9 @@ function about({ arOrEn }: { arOrEn: string }) {
               <p className=" leading-7 text-sm text-slate-800 dark:text-slate-200">
                 We prioritize excellence and efficiency in everything we do
                 <br />
-                Don't waste water
+                Do not waste water
                 <br />
-                No pity in the compound's roads
+                No pity in the compound is roads
                 <br />
                 High quality Italian products
                 <br />
@@ -151,7 +170,7 @@ function about({ arOrEn }: { arOrEn: string }) {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
-export default about;
+export default About;

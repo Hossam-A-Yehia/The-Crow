@@ -3,14 +3,27 @@ import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 
-function Landing({ arOrEn, changeLang }: any) {
+function Landing({}: any) {
+  const [arOrEn, setArOrEn] = useState<string>("ar");
+
+  useEffect(() => {
+    localStorage.setItem("lang", arOrEn);
+  }, [arOrEn]);
+
+  const changeLang = () => {
+    arOrEn === "ar" ? setArOrEn("en") : setArOrEn("ar");
+  };
+
   const user =
     typeof window !== "undefined"
       ? JSON.parse(localStorage.getItem("user") as any)
       : null;
   return (
     <div className="p-4 w-full h-[calc(100vh-108px)] relative bg-landing bg-cover bg-red-500 content-[' '] before:absolute before:bg-[#000000b3] before:w-full before:h-full before:top-0 before:left-0 flex items-center justify-center before:z-1 ">
-      <Button onClick={changeLang} className=" fixed top-[110px] left-0 z-50">
+      <Button
+        onClick={changeLang}
+        className=" absolute top-0 w-fit left-0 z-50"
+      >
         Ar/En
       </Button>
       <div className=" relative z-40 text-white text-center flex flex-col gap-3">

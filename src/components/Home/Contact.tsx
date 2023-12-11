@@ -1,7 +1,26 @@
+"use client";
 import Image from "next/image";
-function Contact({ arOrEn }: { arOrEn: string }) {
+import { Button } from "../ui/button";
+import { useEffect, useState } from "react";
+function Contact() {
+  const [arOrEn, setArOrEn] = useState<string>("ar");
+
+  useEffect(() => {
+    localStorage.setItem("lang", arOrEn);
+  }, [arOrEn]);
+
+  const changeLang = () => {
+    arOrEn === "ar" ? setArOrEn("en") : setArOrEn("ar");
+  };
+
   return (
-    <>
+    <div className=" relative ">
+      <Button
+        onClick={changeLang}
+        className=" absolute top-0 w-fit left-0 z-50"
+      >
+        Ar/En
+      </Button>
       {arOrEn === "ar" ? (
         <div className="  text-center my-[150px] ">
           <div className="flex flex-col gap-2 mb-[90px]">
@@ -79,7 +98,7 @@ function Contact({ arOrEn }: { arOrEn: string }) {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

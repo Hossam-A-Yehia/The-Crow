@@ -1,15 +1,48 @@
 "use client";
-import { addCar } from "@/app/actions";
+import { URL } from "@/app/url";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function CarForm() {
+  const { push } = useRouter();
+  const [newCar, setNewCar] = useState({});
   const token =
     typeof window !== "undefined"
       ? JSON.parse(localStorage.getItem("user") as any).access_token
       : null;
 
+  const addCar = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(`${URL}/api/cars/add`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(newCar),
+      });
+      const data = await res.json();
+      console.log(data);
+      push("/client/car-wisth-list");
+    } catch (err: any) {
+      console.log(err);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    const { name } = e.target;
+
+    setNewCar((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+  console.log(newCar);
+
   return (
-    <form action={addCar} className="w-full mt-[30px] ">
+    <form onSubmit={addCar} className="w-full mt-[30px] ">
       <input type="hidden" name="token" value={token} />
 
       <div className="flex items-center md:items-start gap-4 flex-col md:flex-row ">
@@ -18,6 +51,7 @@ export default function CarForm() {
             نمرة السيارة :*
           </label>
           <input
+            onChange={handleChange}
             type="text"
             name="car_number"
             id="car_number"
@@ -30,6 +64,7 @@ export default function CarForm() {
             موديل السيارة :*
           </label>
           <input
+            onChange={handleChange}
             type="text"
             name="car_model"
             id="car_model"
@@ -44,6 +79,7 @@ export default function CarForm() {
             لون السيارة :*
           </label>
           <input
+            onChange={handleChange}
             type="text"
             name="car_color"
             id="car_color"
@@ -56,6 +92,8 @@ export default function CarForm() {
             ايام غسيل السيارات :*
           </label>
           <select
+            onChange={handleChange as any}
+            defaultValue="Mon-Thu"
             name="Car_Wash_Schedule_Days"
             id="Car_Wash_Schedule_Days"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

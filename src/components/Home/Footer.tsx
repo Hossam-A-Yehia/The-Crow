@@ -1,8 +1,27 @@
+"use client";
 import { Facebook, Instagram, Twitter } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Button } from "../ui/button";
 
-function Footer({ arOrEn }: { arOrEn: string }) {
+function Footer() {
+  const [arOrEn, setArOrEn] = useState<string>("ar");
+
+  useEffect(() => {
+    localStorage.setItem("lang", arOrEn);
+  }, [arOrEn]);
+
+  const changeLang = () => {
+    arOrEn === "ar" ? setArOrEn("en") : setArOrEn("ar");
+  };
+
   return (
-    <div className=" bg-slate-100 px-4 py-[50px] dark:bg-slate-900 text-center">
+    <div className=" bg-slate-100 px-4 py-[50px] dark:bg-slate-900 text-center relative">
+      <Button
+        onClick={changeLang}
+        className=" absolute top-0 w-fit left-0 z-50"
+      >
+        Ar/En
+      </Button>
       {arOrEn === "ar" ? (
         <div className=" flex items-center md:items-start justify-between mx-auto flex-col md:flex-row">
           <div className="flex flex-col gap-3 border-b-[1px] border-slate-300 w-full py-3 my-3 md:m-0 md:p-0 md:border-none ">

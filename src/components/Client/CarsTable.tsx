@@ -1,12 +1,11 @@
 "use client";
-import { deleteCar } from "@/app/actions";
-import { useAppSelector } from "@/app/store/hooks";
+import { URL } from "@/app/url";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 function CarsTable() {
   const [data, setData] = useState<[]>([]);
-  const URL = "https://wevr.tech/store.wevr.tech/public";
+  const [count, setCount] = useState<number>(0);
 
   const token =
     typeof window !== "undefined"
@@ -30,7 +29,26 @@ function CarsTable() {
       }
     };
     FetchCars();
-  }, [token]);
+  }, [count]);
+
+  const deleteCar = async (id: string) => {
+    setCount((prev) => (prev += 1));
+    try {
+      const res = await fetch(`${URL}/api/cars/delete/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await res.json();
+      console.log(data);
+      setCount((prev) => (prev += 1));
+    } catch (err: any) {
+      setCount((prev) => (prev += 1));
+
+      console.log(err);
+    }
+  };
 
   return (
     <>
@@ -82,16 +100,12 @@ function CarsTable() {
                   {e.Car_Wash_Schedule_Days}
                 </td>
                 <td className="px-6 py-4 flex items-center ">
-                  <form action={deleteCar}>
-                    <input type="hidden" name="id" value={e.id} />
-                    <input type="hidden" name="token" value={token} />
-                    <button
-                      type="submit"
-                      className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-                    >
-                      حذف
-                    </button>
-                  </form>
+                  <button
+                    onClick={() => deleteCar(e.id)}
+                    className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                  >
+                    حذف
+                  </button>
                   <Link
                     href={`/client/update-car/${e.id}`}
                     className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-900"

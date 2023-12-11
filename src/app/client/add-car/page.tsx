@@ -1,6 +1,4 @@
-import { addCar } from "@/app/actions";
 import CarForm from "@/components/Client/CarForm";
-import Link from "next/link";
 
 function page() {
   return (

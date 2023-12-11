@@ -1,7 +1,4 @@
-import { FetchCars } from "@/app/actions";
 import CarsTable from "@/components/Client/CarsTable";
-import { ModeToggle } from "@/components/ModeToggle";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 function page() {
   return (

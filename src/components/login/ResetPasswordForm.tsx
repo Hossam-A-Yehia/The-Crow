@@ -1,4 +1,5 @@
 "use client";
+import { URL } from "@/app/url";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -10,8 +11,8 @@ function ResetPasswordForm() {
   const resetPassword = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${URL}/api/auth/reset-password-request`, {
-        method: "POST",
+      const res = await fetch(`${URL}/api/auth/change-password`, {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },

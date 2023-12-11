@@ -1,5 +1,5 @@
 "use client";
-import { Bell, CarFront, CircleUser, Home, MapPin, icons } from "lucide-react";
+import { CarFront, CircleUser, MailPlus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -19,7 +19,7 @@ function NavBottom() {
       title: "home",
     },
     {
-      icon: <Bell size={30} strokeWidth={3} />,
+      icon: <MailPlus size={30} strokeWidth={3} />,
       link: "/client/send-message",
       title: "noty",
     },
