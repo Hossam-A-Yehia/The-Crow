@@ -2,6 +2,7 @@
 import { Facebook, Instagram, Twitter } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 function Footer() {
   const [arOrEn, setArOrEn] = useState<string>("ar");
@@ -31,15 +32,7 @@ function Footer() {
                 السبت - الخميس
               </span>
               <span className=" font-medium text-xl">
-                من 8 صباحا الي 12 مساءا
-              </span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-sm text-gray-500 font-semibold">
-                الجمعة
-              </span>
-              <span className=" font-medium text-xl">
-                من 8 صباحا الي 10 مساءا
+                من 4 مساءا الي 12 صباحا
               </span>
             </div>
           </div>
@@ -51,9 +44,7 @@ function Footer() {
               <li className="text-xl text-gray-500 font-semibold">
                 - اشترك في نشرتنا الاخبارية
               </li>
-              <li className="text-xl text-gray-500 font-semibold">
-                - احصل علي احدث الوجبات
-              </li>
+
               <li className="text-xl text-gray-500 font-semibold">
                 - احصل علي احدث الخصومات
               </li>
@@ -64,13 +55,15 @@ function Footer() {
           </div>
           <div className="flex flex-col gap-6 border-b-[1px]   mt-3 md:m-0 ">
             <h1 className="font-bold text-2xl text-center whitespace-nowrap ">
-              وسائل التواصل الاجتماعي{" "}
+              تواصل معنا عبر الفيسبوك
             </h1>
-            <div className="flex items-center gap-4 justify-center">
-              <Facebook className="text-2xl text-blue-600" />
-              <Instagram className="text-2xl text-red-600" />
-              <Twitter className="text-3xl text-blue-500" />
-            </div>
+            <Link
+              target="_blanck"
+              href="https://www.facebook.com/profile.php?id=61553926063909&mibextid=ZbWKwL"
+              className=""
+            >
+              <Facebook className="text-white font-bold text-2xl flex items-center gap-4 justify-center border-[1px]    bg-sky-700   p-2  w-[50px] h-[40px] rounded-sm mx-auto transition-all duration-300 hover:bg-sky-600 " />
+            </Link>
           </div>
         </div>
       ) : (
@@ -81,13 +74,7 @@ function Footer() {
               <span className="  text-sm text-gray-500 font-semibold">
                 Saturday - Thursday
               </span>
-              <span className=" font-medium text-xl">8 am to 12 pm</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-sm text-gray-500 font-semibold">
-                Friday
-              </span>
-              <span className=" font-medium text-xl">8 am to 10 pm</span>
+              <span className=" font-medium text-xl">4 pm to 10 am</span>
             </div>
           </div>
           <div className="flex flex-col gap-3 border-b-[1px] border-slate-300 w-full py-3 my-3 md:m-0 md:p-0 md:border-none">
@@ -96,9 +83,7 @@ function Footer() {
               <li className="text-xl text-gray-500 font-semibold">
                 - Subscribe to our newsletter
               </li>
-              <li className="text-xl text-gray-500 font-semibold">
-                - Get the latest meals
-              </li>
+
               <li className="text-xl text-gray-500 font-semibold">
                 - Get the latest discounts
               </li>
@@ -109,13 +94,15 @@ function Footer() {
           </div>
           <div className="flex flex-col gap-6 border-b-[1px]   mt-3 md:m-0 ">
             <h1 className="font-bold text-2xl text-center whitespace-nowrap ">
-              Social media{" "}
+              Contact us via Facebook{" "}
             </h1>
-            <div className="flex items-center gap-4 justify-center">
-              <Facebook className="text-2xl text-blue-600" />
-              <Instagram className="text-2xl text-red-600" />
-              <Twitter className="text-3xl text-blue-500" />
-            </div>
+            <Link
+              target="_blanck"
+              href="https://www.facebook.com/profile.php?id=61553926063909&mibextid=ZbWKwL"
+              className=""
+            >
+              <Facebook className="text-white font-bold text-2xl flex items-center gap-4 justify-center border-[1px]    bg-sky-700   p-2  w-[50px] h-[40px] rounded-sm mx-auto transition-all duration-300 hover:bg-sky-600 " />
+            </Link>
           </div>
         </div>
       )}
