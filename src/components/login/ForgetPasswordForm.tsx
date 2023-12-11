@@ -23,11 +23,15 @@ export default function ForgetPasswordForm() {
       });
       const data = await res.json();
       console.log(data);
-      push("/");
-      toast.info("Please Check You Gmail");
+      if (res.status === 200) {
+        push("/");
+        toast.info("Please Check You Gmail");
+      } else {
+        setError("الايميل غير موجود برجاء التأكد من البريد ");
+      }
     } catch (err: any) {
       console.log(err);
-      setEmail("الايميل غير موجود برجاء التأكد من البريد ");
+      setError("الايميل غير موجود برجاء التأكد من البريد ");
     }
   };
 
