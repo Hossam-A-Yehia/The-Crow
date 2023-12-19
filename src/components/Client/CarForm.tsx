@@ -39,7 +39,6 @@ export default function CarForm() {
       return { ...prev, [name]: value };
     });
   };
-  console.log(newCar);
 
   return (
     <form onSubmit={addCar} className="w-full mt-[30px] ">

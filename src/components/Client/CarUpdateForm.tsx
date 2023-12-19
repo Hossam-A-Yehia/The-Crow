@@ -1,10 +1,11 @@
 "use client";
-import { updateCar } from "@/app/actions";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function CarUpdateForm() {
+  const [newCar, setNewCar] = useState({});
+
   const path = usePathname();
   const id = path.split("/")[3];
 
@@ -13,17 +14,42 @@ function CarUpdateForm() {
       ? JSON.parse(localStorage.getItem("user") as any).access_token
       : null;
 
-  return (
-    <form action={updateCar} className="w-full mt-[30px] ">
-      <input type="hidden" name="token" value={token} />
-      <input type="hidden" name="id" value={id} />
+  const updateCar = async (e: React.FormEvent<HTMLFormElement>) => {
+    try {
+      const res = await fetch(`${URL}/api/cars/update/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(newCar),
+      });
+      const data = await res.json();
+      console.log(data);
+    } catch (err: any) {
+      console.log(err);
+    }
+    location.replace("/client/car-wisth-list");
+  };
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    const { name } = e.target;
+
+    setNewCar((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+
+  return (
+    <form onSubmit={updateCar} className="w-full mt-[30px] ">
       <div className="flex items-center md:items-start gap-4 flex-col md:flex-row ">
         <div className="flex flex-col items w-full md:w-1/2 ">
           <label htmlFor="Car-plate-information" className="font-bold ">
             نمرة السيارة :*
           </label>
           <input
+            onChange={handleChange}
             type="text"
             name="car_number"
             id="Car-plate-information"
@@ -35,6 +61,7 @@ function CarUpdateForm() {
             موديل السيارة :*
           </label>
           <input
+            onChange={handleChange}
             type="text"
             name="car_model"
             id="Car-model"
@@ -48,6 +75,7 @@ function CarUpdateForm() {
             لون السيارة :*
           </label>
           <input
+            onChange={handleChange}
             type="text"
             name="car_color"
             id="Car-Color"
@@ -59,6 +87,7 @@ function CarUpdateForm() {
             ايام غسيل السيارات :*
           </label>
           <select
+            onChange={handleChange as any}
             name="Car_Wash_Schedule_Days"
             id="countries"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

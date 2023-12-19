@@ -36,7 +36,6 @@ function RegisterForm() {
     });
   };
 
-  console.log(user);
 
   return (
     <form onSubmit={handleRegister} className="w-full p-4 mt-[30px] ">
