@@ -1,6 +1,14 @@
+import { fetchCars } from "@/actions";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import CarsTable from "@/components/Client/CarsTable";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
-function page() {
+async function page() {
+  const { user } = await getServerSession(authOptions);
+
+  const cars: any = await fetchCars(user._id);
+  console.log(cars);
+
   return (
     <>
       <head>
@@ -17,7 +25,7 @@ function page() {
           >
             Add Car
           </Link>{" "}
-          <CarsTable />
+          <CarsTable carsList={cars} />
         </div>
       </div>
     </>
