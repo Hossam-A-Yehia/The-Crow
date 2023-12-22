@@ -1,9 +1,7 @@
 "use client";
 import { sendMessage } from "@/actions";
-import { URL } from "@/app/url";
 import { X } from "lucide-react";
 import { useSession } from "next-auth/react";
-import { redirect, useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useState } from "react";
 import { toast } from "react-toastify";
 import { useFormStatus } from "react-dom";
@@ -20,15 +18,6 @@ function MessageBox({
   const { pending } = useFormStatus();
 
   console.log(pending);
-
-  // const sendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   try {
-  //     toast.success("The message has been sent, thank you");
-  //   } catch (err: any) {
-  //     console.log(err);
-  //   }
-  // };
 
   const handleMessage = async (formData: FormData) => {
     sendMessage(formData).then((e) => {
@@ -56,7 +45,7 @@ function MessageBox({
             className="ml-auto cursor-pointer transition-all duration-300 hover:bg-white hover:text-red-900"
           />
           <h1 className="font-bold text-2xl dark:text-slate-100  ">
-            Send A Message
+            أكتب رسالتك
           </h1>
           <form action={handleMessage} className="my-3">
             <input type="hidden" name="userId" value={data?.user?._id} />
@@ -70,7 +59,7 @@ function MessageBox({
               aria-disabled={pending}
               className=" block bg-sky-700 border-[1px] duration-300  rounded-lg text-white text-lg hover:bg-white hover:border-sky-700 hover:text-sky-700 dark:hover:bg-transparent py-2 px-4 dark:hover:text-white "
             >
-              Send
+              ارسال
             </button>
           </form>
         </div>

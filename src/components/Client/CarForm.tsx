@@ -59,9 +59,9 @@ export default function CarForm() {
             id="Car_Wash_Schedule_Days"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option value="Mon-Thu">الاتنين والخميس</option>
-            <option value="Sun-Wed">الاحد و الاربعاء</option>
-            <option value="Sat-Tue">السبت والثلاثاء</option>
+            <option value="الاتنين والخميس">الاتنين والخميس</option>
+            <option value="الاحد و الاربعاء">الاحد و الاربعاء</option>
+            <option value="السبت والثلاثاء">السبت والثلاثاء</option>
           </select>
         </div>
       </div>
@@ -71,13 +71,13 @@ export default function CarForm() {
           type="submit"
           className=" mb-[200px] md:mb-0  block bg-sky-700 border-[1px] duration-300  rounded-lg text-white text-lg hover:bg-white hover:border-sky-700 hover:text-sky-700 dark:hover:bg-transparent py-2 px-3 "
         >
-          Add car
+          اضافة سيارة
         </button>
         <Link
           href="/client/car-wisth-list"
           className=" mb-[200px] md:mb-0  block bg-red-700 border-[1px] duration-300  rounded-lg text-white text-lg hover:bg-white hover:border-red-700 hover:text-red-700 dark:hover:bg-transparent py-2 px-3 "
         >
-          Cars List
+          قائمة السيارات
         </Link>
       </div>
     </form>

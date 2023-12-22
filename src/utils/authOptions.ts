@@ -1,9 +1,14 @@
-import NextAuth, { NextAuthOptions } from "next-auth";
+import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import DiscordProvider from "next-auth/providers/discord";
 
-export const authOptions: NextAuthOptions = {
+const authOptions: AuthOptions = {
   // Configure one or more authentication providers
   providers: [
+    DiscordProvider({
+      clientId: process.env.CLIENT_ID as string,
+      clientSecret: process.env.CLIENT_SECRET as string,
+    }),
     CredentialsProvider({
       id: "credentials",
       name: "Credentials",
@@ -31,17 +36,19 @@ export const authOptions: NextAuthOptions = {
       },
     } as any),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
+
   callbacks: {
-    async jwt({ token, user }: any): Promise<any> {
+    async jwt({ token, user }) {
       // Persist the OAuth access_token and or the user id to the token right after signin
 
       return { ...token, ...user };
     },
-    async session({ session, token, user }: any): Promise<any> {
+    async session({ session, token, user }) {
       session.user = token;
       return session;
     },
   },
 };
-export const handler = NextAuth(authOptions as any);
-export { handler as GET, handler as POST, handler as PUT, handler as PATCH };
+
+export default authOptions;

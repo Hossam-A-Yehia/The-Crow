@@ -2,14 +2,20 @@
 import { CarFront, CircleUser, MailPlus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 function NavBottom() {
-  const [isActive, setIsActive] = useState("car-washing");
+  const pathname = usePathname();
+  const id = pathname.split("/")[2];
+  const [isActive, setIsActive] = useState(id);
+
+  console.log(id);
+
   const icons = [
     {
       icon: <CarFront size={30} strokeWidth={3} />,
-      link: "/client/car-wisth-list",
+      link: "/client/car-wash-list",
       title: "car-washing",
     },
 
@@ -21,11 +27,11 @@ function NavBottom() {
     {
       icon: <MailPlus size={30} strokeWidth={3} />,
       link: "/client/send-message",
-      title: "noty",
+      title: "send-message",
     },
     {
       icon: <CircleUser size={30} strokeWidth={3} />,
-      link: "/client/profile/12",
+      link: "/client/profile",
       title: "profile",
     },
   ];

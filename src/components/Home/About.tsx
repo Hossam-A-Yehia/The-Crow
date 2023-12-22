@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
-import { useSession } from "next-auth/react";
 
 function About() {
   const [arOrEn, setArOrEn] = useState<string>("ar");

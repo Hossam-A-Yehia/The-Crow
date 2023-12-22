@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import RegisterForm from "@/components/register/RegisterForm";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+import authOptions from "@/utils/authOptions";
 
 async function page() {
   const session = await getServerSession(authOptions);

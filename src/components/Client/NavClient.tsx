@@ -1,12 +1,9 @@
 "use client";
-import { Link, UserCircle } from "lucide-react";
+import { UserCircle } from "lucide-react";
 
 import { Button } from "../ui/button";
 import { ModeToggle } from "../ModeToggle";
 import { signOut, useSession } from "next-auth/react";
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 function NavClient() {
   const { data } = useSession() as any;
@@ -28,7 +25,7 @@ function NavClient() {
         />
         <div className="flex flex-col gap-1 text-white text-lg font-semibold">
           <span>{`${data?.user?.first_name}  ${data?.user?.last_name}`}</span>
-          <span>Client</span>
+          <span>عميل</span>
         </div>
       </div>
       <div className="flex items-center gap-2">

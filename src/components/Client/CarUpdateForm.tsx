@@ -8,7 +8,6 @@ function CarUpdateForm({ singleCar }: any) {
   const [number, setNumber] = useState(singleCar.car_number);
   const [color, setColor] = useState(singleCar.car_color);
   const [model, setModel] = useState(singleCar.car_model);
-  const [washDay, setWashDay] = useState(singleCar.Car_Wash_Schedule_Days);
   const path = usePathname();
   const id = path.split("/")[3];
 
@@ -67,20 +66,20 @@ function CarUpdateForm({ singleCar }: any) {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option
-              value="Mon-Thu"
-              selected={singleCar.Car_Wash_Schedule_Days === "Mon-Thu"}
+              value="الاتنين والخميس"
+              selected={singleCar.Car_Wash_Schedule_Days === "الاتنين والخميس"}
             >
               الاتنين والخميس
             </option>
             <option
-              value="Sun-Wed"
-              selected={singleCar.Car_Wash_Schedule_Days === "Sun-Wed"}
+              value="الاحد و الاربعاء"
+              selected={singleCar.Car_Wash_Schedule_Days === "الاحد و الاربعاء"}
             >
               الاحد و الاربعاء
             </option>
             <option
-              value="Sat-Tue"
-              selected={singleCar.Car_Wash_Schedule_Days === "Sat-Tue"}
+              value="السبت والثلاثاء"
+              selected={singleCar.Car_Wash_Schedule_Days === "السبت والثلاثاء"}
             >
               السبت والثلاثاء
             </option>
@@ -93,13 +92,13 @@ function CarUpdateForm({ singleCar }: any) {
           type="submit"
           className=" mb-[200px] md:mb-0  block bg-sky-700 border-[1px] duration-300  rounded-lg text-white text-lg hover:bg-white hover:border-sky-700 hover:text-sky-700 dark:hover:bg-transparent py-2 px-3 "
         >
-          Update car
+          تعديل
         </button>
         <Link
           href="/client/car-wash-list"
           className=" mb-[200px] md:mb-0  block bg-red-700 border-[1px] duration-300  rounded-lg text-white text-lg hover:bg-white hover:border-red-700 hover:text-red-700 dark:hover:bg-transparent py-2 px-3 "
         >
-          Cars List
+          قائمة السيارات
         </Link>
       </div>
     </form>

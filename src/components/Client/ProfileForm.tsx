@@ -17,7 +17,7 @@ export default function ProfileForm() {
     <form action={updateProfile} className="w-full mt-[30px] p-4">
       <input type="hidden" name="id" value={data?.user?._id} />
       <div className="flex item-center md:items-start gap-4 flex-col md:flex-row mb-4 ">
-        <div className="flex flex-col items-start w-full md:w-1/3 ">
+        <div className="flex flex-col items-start w-full md:w-1/2 ">
           <label htmlFor="firstName" className="font-bold ">
             الاسم الاول :*
           </label>
@@ -31,7 +31,7 @@ export default function ProfileForm() {
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
           />
         </div>
-        <div className="flex flex-col items-start w-full md:w-1/3 ">
+        <div className="flex flex-col items-start w-full md:w-1/2 ">
           <label htmlFor="firstName" className="font-bold ">
             اسم العائلة :*
           </label>
@@ -45,7 +45,9 @@ export default function ProfileForm() {
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
           />
         </div>
-        <div className="flex flex-col items-start w-full md:w-1/3 ">
+      </div>
+      <div className="flex items-center md:items-start gap-4 flex-col md:flex-row mb-4 ">
+        <div className="flex flex-col items-start w-full md:w-1/2 ">
           <label htmlFor="phone" className="font-bold ">
             رقم الهاتف :*
           </label>
@@ -58,8 +60,6 @@ export default function ProfileForm() {
             className="p-2 text-slate-900 font-bold placeholder:font-bold placeholder:text-slate-400   w-full  mt-2 mb-1 transition-transform duration-300 focus:-translate-x-2 focus:outline-none  border-sky-500 border-[1px] dark:bg-transparent dark:focus:outline-none dark:focus:border-sky-700 dark:text-slate-200 "
           />
         </div>
-      </div>
-      <div className="flex items-center md:items-start gap-4 flex-col md:flex-row mb-4 ">
         <div className="flex flex-col items-start w-full md:w-1/2 ">
           <label htmlFor="email" className="font-bold ">
             البريد الالكتروني :*
@@ -77,14 +77,14 @@ export default function ProfileForm() {
 
       <div className="flex items-center justify-center gap-3 mb-4 ">
         <button className=" block bg-sky-700 border-[1px] duration-300  rounded-lg text-white text-lg hover:bg-white hover:border-sky-700 hover:text-sky-700 dark:hover:bg-transparent py-2 px-3 ">
-          Update
+          تعديل
         </button>
 
         <Link
           href="/"
           className="  block hover:bg-red-700 border-[1px] duration-300 rounded-lg text-white text-lg bg-red-500 border-red-700 hover:border-white  dark:hover:bg-transparent py-2 px-3 "
         >
-          Cancel
+          رجوع
         </Link>
       </div>
     </form>
